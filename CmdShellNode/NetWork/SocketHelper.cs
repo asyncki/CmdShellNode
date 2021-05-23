@@ -99,17 +99,34 @@ namespace CmdShellNode
             }
         }
 
+        StringBuilder msgCache = new StringBuilder();
+
         public void ReceiveCallback(IAsyncResult re)
         {
             try
             {
                 int len = client.EndReceive(re);
-                if (len > 1)
+                if (len > 0)
                 {
                     string info = Encoding.UTF8.GetString(receiveBuffer, 0, len);
-                    if (info.Length > 1)
+                    info = msgCache.Append(info).ToString();
+                    int start = 0;
+                    int end = info.IndexOf("\n", start);
+                    while (end > 0)
                     {
-                        OnReadFinish(info);
+                        string msg = info.Substring(start, end);
+                        if (msg.Length > 0)
+                        {
+                            OnReadFinish(msg);
+                        }
+                        start = end + 1;
+                        end = info.IndexOf("\n", start);
+                    }
+                    if (start > 0) {
+                        msgCache.Clear();
+                        if (start < info.Length) {
+                            msgCache.Append(info.Substring(start));
+                        }
                     }
                 }
                 if (socketSwitch)
@@ -138,7 +155,7 @@ namespace CmdShellNode
                 {
                     lock (sync)
                     {
-                        byte[] buffer = System.Text.Encoding.UTF8.GetBytes(str);
+                        byte[] buffer = Encoding.UTF8.GetBytes(str);
                         client.Send(buffer, buffer.Length, SocketFlags.None);
                     }
                 }
