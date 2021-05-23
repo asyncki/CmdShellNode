@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29709.97
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmdShellNode", "CmdShellServer\CmdShellNode.csproj", "{15059724-7258-4523-B25B-EAEDF340A30F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CmdShellNode", "CmdShellNode\CmdShellNode.csproj", "{15059724-7258-4523-B25B-EAEDF340A30F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1", "Test1\Test1.csproj", "{A97EEA28-88EE-4A19-89A3-624E66677B73}"
 EndProject
@@ -26,6 +26,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BE6F116B-4F4D-4D01-BD18-6B2A93C8357E}
+		SolutionGuid = {D8CBCD99-4877-4F5F-A77E-E6A4DDBBF5F4}
 	EndGlobalSection
 EndGlobal

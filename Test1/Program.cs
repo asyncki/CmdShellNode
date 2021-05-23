@@ -14,7 +14,7 @@ namespace Test1
             {
                 StartInfo = new ProcessStartInfo
                 {
-                    FileName = @"C:\Users\AdminCK\source\repos\CmdShellServer\CmdShellServer\bin\Debug\CmdShellServer.exe",
+                    FileName = @"CmdShellNode.exe",
                     UseShellExecute = false,
                     CreateNoWindow = true,
                     RedirectStandardInput = false,
@@ -25,7 +25,7 @@ namespace Test1
             };
             proc.Start();
             Console.WriteLine("pid:" + proc.Id);
-            Console.ReadLine();
+            proc.WaitForExit();
         }
     }
 }
